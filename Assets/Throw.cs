@@ -13,11 +13,6 @@ public class Throw : MonoBehaviour
         transform.parent = null;
         GetComponent<Collider2D>().isTrigger = true;
         DelayDoEventHandler.Create(ResetCollider, 0.5f);
-
-        if (GetComponent<Parts>().Egg)
-        {
-            gameObject.AddComponent<AmongUsEasterEgg>();
-        }
     }
 
     // Update is called once per frame

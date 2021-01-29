@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class TalkTextBoxDisplayControll : SingletonMonoBehavior<TalkTextBoxDisplayControll>
 {
-    [SerializeField]
     Text TalkText;
 
-    [SerializeField]
     string TargetText;
 
     char[] CharArray;
@@ -28,13 +26,9 @@ public class TalkTextBoxDisplayControll : SingletonMonoBehavior<TalkTextBoxDispl
         return InTalking;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        TalkText.text = "";
-        TextShowUpSpeed = 0.1f;
-        StartTalking("Noki39 was not an imposter.");
-    }
+protected virtual void Start() {
+   TalkText = GetComponent<Text>();
+}
 
     void AddChar()
     {

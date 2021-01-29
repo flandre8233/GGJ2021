@@ -4,19 +4,23 @@ using UnityEngine;
 using System.Linq;
 public class ShipThrowPartControll : MonoBehaviour
 {
-private void Start() {
-}
+    private void Start()
+    {
+    }
 
     public void ThrowRandomPart()
     {
-        List<Collider2D> Colliders = GetComponentsInChildren<Collider2D>().ToList();
-        int ThrowIndex = Random.Range(0, Colliders.Count);
-        GameObject ThrowTarget = Colliders[ThrowIndex].gameObject;
-        Colliders.RemoveAt(ThrowIndex);
-        ThrowTarget.AddComponent<Throw>();
+        List<Parts> PartsList = GetComponentsInChildren<Parts>().ToList();
+        int ThrowIndex = Random.Range(0, PartsList.Count);
+        Parts ThrowTarget = PartsList[ThrowIndex];
+        PartsList.RemoveAt(ThrowIndex);
+
+        IThrow throwCMD = ThrowTarget;
+        throwCMD.Throw();
     }
 
-    public bool IsStillHaveAmmo(){
+    public bool IsStillHaveAmmo()
+    {
         List<Collider2D> Colliders = GetComponentsInChildren<Collider2D>().ToList();
         return Colliders.Count > 0;
     }

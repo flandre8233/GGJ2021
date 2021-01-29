@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parts : MonoBehaviour
+public class Parts : MonoBehaviour, IThrow
 {
-    [SerializeField]
-public bool Egg;
-
     [SerializeField]
     Ship ship;
     public static Parts Create(GameObject TargetObject, Ship ParentShip)
@@ -16,10 +13,19 @@ public bool Egg;
         return Ret;
     }
 
+    public virtual void Throw()
+    {
+        gameObject.AddComponent<Throw>();
+    }
+
     public Ship GetShip()
     {
         return ship;
     }
-
-
 }
+
+public interface IThrow
+{
+    void Throw();
+}
+

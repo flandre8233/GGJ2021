@@ -18,7 +18,7 @@ public class ShipPartControll : MonoBehaviour
         foreach (var item in Colliders)
         {
             PartCollider.Create(item, ship);
-            Parts.Create(item.gameObject,ship);
+            //Parts.Create(item.gameObject,ship);
         }
     }
 

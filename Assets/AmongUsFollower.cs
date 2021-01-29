@@ -13,11 +13,14 @@ public class AmongUsFollower : MonoBehaviour
     void Start()
     {
         MyCanvas = GameObject.FindGameObjectWithTag("DefaultCanvas").GetComponent<Canvas>();
+        transform.parent = MyCanvas.transform;
+         GetComponent<RectTransform>().anchoredPosition = WorldToCanvasPoint(MyCanvas , FollowAt.position) ;
     }
 
     private void Update()
     {
-        GetComponent<RectTransform>().anchoredPosition = WorldToCanvasPoint(MyCanvas , FollowAt.position);
+        Vector2 MyAnchoredPosition = GetComponent<RectTransform>().anchoredPosition ;
+        GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp( MyAnchoredPosition  , WorldToCanvasPoint(MyCanvas , FollowAt.position) , Time.deltaTime ) ;
     }
 
     public static Vector2 WorldToCanvasPoint(Canvas canvas, Vector3 worldPos)
