@@ -24,14 +24,14 @@ public class globalUpdateManager : SingletonMonoBehavior<globalUpdateManager> {
     /// <summary>
     /// 把function註冊在每幀執行的delegate裡
     /// </summary>
-    public void registerUpdateDg(updateDelegate obj) {
-        globalUpdateDg += obj;
+    public static void registerUpdateDg(updateDelegate obj) {
+       instance.globalUpdateDg += obj;
     }
     /// <summary>
     /// 取消function在每幀執行的delegate的註冊
     /// </summary>
-    public void UnregisterUpdateDg(updateDelegate obj) {
-        globalUpdateDg -= obj;
+    public static void UnregisterUpdateDg(updateDelegate obj) {
+        instance.globalUpdateDg -= obj;
     }
 
     public static void ClearDelegate(ref updateDelegate delg) {

@@ -29,7 +29,7 @@ public class ShakeControll : MonoBehaviour
             return;
         }
         IsOpening = true;
-        globalUpdateManager.instance.registerUpdateDg(ShakeMovement);
+        globalUpdateManager.registerUpdateDg(ShakeMovement);
         InvokeRepeating("ReNewTargetV3", 0, ReNewTargetTime);
         ReNewTargetV3();
     }
@@ -63,7 +63,7 @@ public class ShakeControll : MonoBehaviour
 
     void ResetShake()
     {
-        globalUpdateManager.instance.UnregisterUpdateDg(ShakeMovement);
+        globalUpdateManager.UnregisterUpdateDg(ShakeMovement);
         CancelInvoke();
         OutputOffset = TargetV3;
         OrlRotation = Quaternion.identity;

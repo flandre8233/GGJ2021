@@ -27,7 +27,7 @@ public class CameraShakeControll : SingletonMonoBehavior<CameraShakeControll>
         }
 
         IsOpening = true;
-        globalUpdateManager.instance.registerUpdateDg(Shaking);
+        globalUpdateManager.registerUpdateDg(Shaking);
 
         OrlV3 = transform.localPosition;
         InvokeRepeating("ReNewTargetV3", 0, ReNewTargetTime);
@@ -65,7 +65,7 @@ public class CameraShakeControll : SingletonMonoBehavior<CameraShakeControll>
         }
         print("EndShake");
         IsOpening = false;
-        globalUpdateManager.instance.UnregisterUpdateDg(Shaking);
+        globalUpdateManager.UnregisterUpdateDg(Shaking);
         CancelInvoke();
 
         transform.localPosition = TargetV3;
