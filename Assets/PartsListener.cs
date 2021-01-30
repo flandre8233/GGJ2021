@@ -13,6 +13,7 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     // 6 : RightAmmuntion
     // 7 : RightWing
     // 8 : RightWingBooster
+    public UIControl uIControl;
     public void OnSomeShipAddParts(Ship ship, int PartsID)
     {
         if (ship.IsRed)
@@ -28,22 +29,14 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
 
     void OnRedShipAddParts(int PartsID)
     {
-        if (!UIControl.instance)
-        {
-            return;
-        }
         print("OnRedShipAddParts");
-        UIControl.instance.AddRandomUI((UIType)PartsID, PlayerType.Red);
+        uIControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipAddParts(int PartsID)
     {
-        if (!UIControl.instance)
-        {
-            return;
-        }
         print("OnBlueShipAddParts");
-        UIControl.instance.AddRandomUI((UIType)PartsID, PlayerType.Blue);
+        uIControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
     }
 
     public void OnSomeShipRemoveParts(Ship ship, int PartsID)
@@ -61,21 +54,13 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
 
     void OnRedShipRemoveParts(int PartsID)
     {
-        if (!UIControl.instance)
-        {
-            return;
-        }
         print("OnRedShipRemoveParts");
-        UIControl.instance.RemoveUI((UIType)PartsID, PlayerType.Red);
+        uIControl.RemoveUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipRemoveParts(int PartsID)
     {
-        if (!UIControl.instance)
-        {
-            return;
-        }
         print("OnBlueShipRemoveParts");
-        UIControl.instance.RemoveUI((UIType)PartsID, PlayerType.Blue);
+        uIControl.RemoveUI((UIType)PartsID, PlayerType.Blue);
     }
 }
