@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b251825a3da2914d8f7bbdb1c41eca0, type: 3}
+  m_Name: New System UI
+  m_EditorClassIdentifier: 
+  id: 1
+  uiName: System1
+  uIType: 1
+  uIStyle: 0
+  uiSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  description: "\u7CFB\u7D71\u72C0\u614B <-> \u6A5F\u623F"
