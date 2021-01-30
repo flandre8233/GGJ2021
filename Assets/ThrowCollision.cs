@@ -39,13 +39,9 @@ public class ThrowCollision : MonoBehaviour
         if (other.tag == "Core")
         {
             int TargetShipBelongCode = other.transform.GetComponent<ShipCore>().GetBelong();
-            if (TargetShipBelongCode == 1)
+            if (TargetShipBelongCode != GetComponent<Parts>().Belong)
             {
-                OnHitRedCore();
-            }
-            else
-            {
-                OnHitBlueCore();
+                OnHitEnemyCore(other.transform.GetComponent<ShipCore>().ParentShip);
             }
         }
         GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
@@ -63,6 +59,10 @@ public class ThrowCollision : MonoBehaviour
         return Quaternion.Euler(0, 0, Random.Range(0, 360f));
     }
 
+    void OnHitEnemyCore(Ship EnemyShip)
+    {
+        EnemyShip.GetPartControll().OnBeAttack();
+    }
 
     void OnHitRedCore()
     {

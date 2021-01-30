@@ -8,7 +8,7 @@ public class AttachTool : MonoBehaviour
     Ship ParentShip;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Throw")
+        if (other.tag == "Safe")
         {
             if (!other.transform.GetComponent<ThrowCollision>().Attachable)
             {

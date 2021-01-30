@@ -30,6 +30,10 @@ public class Parts : MonoBehaviour, IThrow, IParts
     {
         Throwing.Create(gameObject);
         Detach();
+    }public virtual void ThrowRandom()
+    {
+        ThrowingRandom.Create(gameObject);
+        Detach();
     }
 
     public virtual void Attach()
@@ -60,12 +64,14 @@ public class Parts : MonoBehaviour, IThrow, IParts
     {
         Belong = 0;
         UpdatePaint();
+        gameObject.tag = "Safe";
     }
 }
 
 public interface IThrow
 {
     void Throw();
+    void ThrowRandom();
 }
 
 public interface IParts

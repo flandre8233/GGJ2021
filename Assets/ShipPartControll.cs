@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class ShipPartControll : MonoBehaviour
 {
     [SerializeField]
@@ -52,7 +52,48 @@ public class ShipPartControll : MonoBehaviour
         PartsListener.instance.OnSomeShipRemoveParts(ship, Index);
     }
 
-    public bool IsNeedThisParts(int ID){
+    public Parts GetRandomParts()
+    {
+        List<int> StillHaveIndexes = new List<int>();
+        for (int i = 0; i < Inventory.Length; i++)
+        {
+            if (Inventory[i] != null)
+            {
+                StillHaveIndexes.Add(i);
+            }
+        }
+        int RandomIndex = StillHaveIndexes[Random.Range(0, StillHaveIndexes.Count)];
+        return Inventory[RandomIndex];
+    }
+
+    public bool IsNeedThisParts(int ID)
+    {
         return Inventory[ID] == null;
+    }
+
+    public int GetHP()
+    {
+        List<int> StillHaveIndexes = new List<int>();
+        for (int i = 0; i < Inventory.Length; i++)
+        {
+            if (Inventory[i] != null)
+            {
+                StillHaveIndexes.Add(i);
+            }
+        }
+        return StillHaveIndexes.Count;
+    }
+
+    public void OnBeAttack()
+    {
+        if (GetHP() > 1)
+        {
+            GetComponent<ShipThrowPartControll>().ThrowRandomPartRandom();
+            GetComponent<ShipThrowPartControll>().ThrowRandomPartRandom();
+        }else{
+            Debug.Log("Set Dead");
+            Destroy( ship.gameObject);
+        }
+
     }
 }

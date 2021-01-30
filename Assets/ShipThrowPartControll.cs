@@ -19,6 +19,17 @@ public class ShipThrowPartControll : MonoBehaviour
         throwCMD.Throw();
     }
 
+    public void ThrowRandomPartRandom()
+    {
+        List<Parts> PartsList = GetComponentsInChildren<Parts>().ToList();
+        int ThrowIndex = Random.Range(0, PartsList.Count);
+        Parts ThrowTarget = PartsList[ThrowIndex];
+        PartsList.RemoveAt(ThrowIndex);
+
+        IThrow throwCMD = ThrowTarget;
+        throwCMD.ThrowRandom();
+    }
+
     public bool IsStillHaveAmmo()
     {
         List<Collider2D> Colliders = GetComponentsInChildren<Collider2D>().ToList();

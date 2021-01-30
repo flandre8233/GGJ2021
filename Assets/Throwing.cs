@@ -13,11 +13,14 @@ public class Throwing : MonoBehaviour
         return Ret;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         tag = "Throw";
+        if(transform.parent){
         OrlDir = transform.parent.up;
+        }else{
+            SetRandomOrlDir();
+        }
         transform.parent = null;
         gameObject.AddComponent<ThrowMapLimit>();
         gameObject.AddComponent<ThrowCollision>();
@@ -47,7 +50,7 @@ public class Throwing : MonoBehaviour
         SetRandomOrlDir();
     }
 
-    void SetRandomOrlDir()
+    protected virtual void SetRandomOrlDir()
     {
         OrlDir = Random.insideUnitCircle.normalized;
     }

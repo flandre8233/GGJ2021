@@ -14,6 +14,11 @@ public abstract class inputControll : MonoBehaviour
     }
     void ToUpdate()
     {
+        if (!Ship)
+        {
+            return;
+        }
+
         if (keyBind.IsHoldMoveForward())
         {
             Ship.GetMovement().MoveForward();
@@ -36,11 +41,13 @@ public abstract class inputControll : MonoBehaviour
         }
     }
 
-    public void AddUpdate(){
+    public void AddUpdate()
+    {
         globalUpdateManager.registerUpdateDg(ToUpdate);
     }
 
-    public void RemoveUpdate(){
+    public void RemoveUpdate()
+    {
         globalUpdateManager.UnregisterUpdateDg(ToUpdate);
     }
 
