@@ -7,8 +7,12 @@ public abstract class inputControll : MonoBehaviour
     [SerializeField]
     Ship Ship;
     protected IkeyBind keyBind;
-    // Update is called once per frame
-    void Update()
+    protected virtual void Start()
+    {
+        Ship.controllBy = this;
+        AddUpdate();
+    }
+    void ToUpdate()
     {
         if (keyBind.IsHoldMoveForward())
         {
@@ -31,6 +35,15 @@ public abstract class inputControll : MonoBehaviour
             Ship.GetAttack().Throw();
         }
     }
+
+    public void AddUpdate(){
+        globalUpdateManager.registerUpdateDg(ToUpdate);
+    }
+
+    public void RemoveUpdate(){
+        globalUpdateManager.UnregisterUpdateDg(ToUpdate);
+    }
+
 }
 
 public interface IkeyBind

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    public inputControll controllBy;
     ShipMovement movement;
     ShipAttack Attack;
 

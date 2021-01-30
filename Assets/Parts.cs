@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parts : MonoBehaviour, IThrow
+public class Parts : MonoBehaviour, IThrow, IParts
 {
-    Ship Parentship;
-    public static Parts Create(GameObject TargetObject , Ship ship)
+    protected Ship Parentship;
+    public static Parts Create(GameObject TargetObject, Ship ship)
     {
         Parts Ret = TargetObject.AddComponent<Parts>();
         Ret.Parentship = ship;
@@ -15,6 +15,15 @@ public class Parts : MonoBehaviour, IThrow
     public virtual void Throw()
     {
         gameObject.AddComponent<Throw>();
+        Detach();
+    }
+
+    public virtual void Attach()
+    {
+    }
+
+    public virtual void Detach()
+    {
     }
 
 }
@@ -22,5 +31,11 @@ public class Parts : MonoBehaviour, IThrow
 public interface IThrow
 {
     void Throw();
+}
+
+public interface IParts
+{
+    void Attach();
+    void Detach();
 }
 

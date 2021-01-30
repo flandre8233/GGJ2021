@@ -15,4 +15,25 @@ public class Crew : Parts
         base.Throw();
         gameObject.AddComponent<AmongUsEasterEgg>();
     }
+
+    public override void Attach()
+    {
+
+    }
+
+    void LostControll()
+    {
+        Parentship.controllBy.RemoveUpdate();
+    }
+    void RecoverControll()
+    {
+        Parentship.controllBy.AddUpdate();
+    }
+
+
+    public override void Detach()
+    {
+        Invoke("LostControll", 0.1f);
+        Invoke("RecoverControll", 0.1f + 1);
+    }
 }
