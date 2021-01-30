@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: e69330fa40774f7408759d187eab106f
+guid: 1ad09d1a52294524fa14dc2f7757ddae
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3227527766514732655
+    second: MainBooster_FireAnimation_0
+  - first:
+      213: -6970790711238675044
+    second: MainBooster_FireAnimation_1
+  - first:
+      213: -491547282228598704
+    second: MainBooster_FireAnimation_2
+  - first:
+      213: 8832088060253976219
+    second: MainBooster_FireAnimation_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,11 +109,95 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MainBooster_FireAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 70.5
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e02d9476b7acc20800000000000000
+      internalID: 3227527766514732655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainBooster_FireAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 70.5
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95b60de7c6c24f90800000000000000
+      internalID: -6970790711238675044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainBooster_FireAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 70.5
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058a474e95cad29f0800000000000000
+      internalID: -491547282228598704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainBooster_FireAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 70.5
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b963860eb41e19a70800000000000000
+      internalID: 8832088060253976219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 3220726db320347b5a0cb65c8856a09b
     internalID: 0
     vertices: []
     indices: 

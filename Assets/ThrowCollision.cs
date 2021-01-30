@@ -29,6 +29,9 @@ public class ThrowCollision : MonoBehaviour
         if (other.tag == "Attach")
         {
             return;
+        }if (other.tag == "Safe")
+        {
+            return;
         }
 
         if (other.tag == "Throw")
