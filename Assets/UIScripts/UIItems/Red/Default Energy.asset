@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e0a16dee25cc344aafb91698632be6, type: 3}
+  m_Name: Default Energy
+  m_EditorClassIdentifier: 
+  id: 3
+  uiName: Energy1
+  uIType: 3
+  uIStyle: 0
+  uiSprite: {fileID: 21300000, guid: 73fd5317696ca47a7b95efcc5f132835, type: 3}
+  playerType: 1
+  description: 

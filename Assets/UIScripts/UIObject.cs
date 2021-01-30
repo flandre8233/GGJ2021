@@ -9,6 +9,6 @@ public class UIObject : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log($"type{uIItem.uIType}");
+        
     }
 }

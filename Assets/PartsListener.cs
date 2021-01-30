@@ -13,6 +13,8 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     // 6 : RightAmmuntion
     // 7 : RightWing
     // 8 : RightWingBooster
+    public UIControl uiControl;
+
     public void OnSomeShipAddParts(Ship ship, int PartsID)
     {
         if (ship.IsRed)
@@ -29,12 +31,13 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     void OnRedShipAddParts(int PartsID)
     {
         print("OnRedShipAddParts");
+        uiControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipAddParts(int PartsID)
     {
         print("OnBlueShipAddParts");
-
+        uiControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
     }
 
     public void OnSomeShipRemoveParts(Ship ship, int PartsID)
@@ -53,12 +56,12 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     void OnRedShipRemoveParts(int PartsID)
     {
         print("OnRedShipRemoveParts");
-
+        uiControl.RemoveUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipRemoveParts(int PartsID)
     {
         print("OnBlueShipRemoveParts");
-
+        uiControl.RemoveUI((UIType)PartsID, PlayerType.Blue);
     }
 }
