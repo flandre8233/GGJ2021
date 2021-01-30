@@ -31,13 +31,13 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     void OnRedShipAddParts(int PartsID)
     {
         print("OnRedShipAddParts");
-        uiControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
+        //uiControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipAddParts(int PartsID)
     {
         print("OnBlueShipAddParts");
-        uiControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
+        //uiControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
     }
 
     public void OnSomeShipRemoveParts(Ship ship, int PartsID)
@@ -56,12 +56,12 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     void OnRedShipRemoveParts(int PartsID)
     {
         print("OnRedShipRemoveParts");
-        uiControl.RemoveUI((UIType)PartsID, PlayerType.Red);
+        //uiControl.RemoveUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipRemoveParts(int PartsID)
     {
         print("OnBlueShipRemoveParts");
-        uiControl.RemoveUI((UIType)PartsID, PlayerType.Blue);
+        //uiControl.RemoveUI((UIType)PartsID, PlayerType.Blue);
     }
 }

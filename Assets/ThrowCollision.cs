@@ -50,7 +50,10 @@ public class ThrowCollision : MonoBehaviour
         }
         GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
         Instantiate(ExplosionPrefab, gameObject.transform.position, GetRandomAngles());
-        transform.GetComponent<Throwing>().ReSetThrowing();
+        if (transform.GetComponent<Throwing>())
+        {
+            transform.GetComponent<Throwing>().ReSetThrowing();
+        }
         GetComponent<Parts>().ResetBelong();
 
     }
