@@ -24,7 +24,7 @@ public float RightTurningSpeed;
 
     private void Update() {
         Vector3 Up = transform.up;
-        Rigidbody.velocity += new Vector2(Up.x,Up.y) * ForwardForce * Time.deltaTime;
+        Rigidbody.MovePosition(Rigidbody.position+ ( new Vector2(Up.x,Up.y) *ForwardForce * Time.deltaTime) ) ;
         ForwardForce = Mathf.Lerp(ForwardForce,0,Time.deltaTime);
     }
 

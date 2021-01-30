@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 316610544}
   - component: {fileID: 316610545}
   - component: {fileID: 316610546}
+  - component: {fileID: 316610538}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -388,6 +389,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7b88de5a62601d34aac7809470664bdf, type: 3}
   - {fileID: 21300000, guid: dc29c01d88d3d204d9e29374f14e5aa4, type: 3}
   - {fileID: 21300000, guid: 475418886730c5244ba9ebea0b394100, type: 3}
+--- !u!114 &316610538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316610531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a7aad2a0fe74879bc08ba6f5c28382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipPrefab: {fileID: 0}
 --- !u!114 &316610539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprites:
-  - {fileID: 21300000, guid: b65bcb0aa672d7e40a5f3db0dc73b239, type: 3}
+  - {fileID: 21300000, guid: e69330fa40774f7408759d187eab106f, type: 3}
   - {fileID: 21300000, guid: b65bcb0aa672d7e40a5f3db0dc73b239, type: 3}
   - {fileID: 21300000, guid: 0b7ab09d0b741ca468bfacd5b47b39b4, type: 3}
 --- !u!114 &316610543
@@ -2071,6 +2085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RightTurningSpeed
       value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445618017143508334, guid: 73d0f857535c74dc1a091dbfa9b99601,
+        type: 3}
+      propertyPath: Speed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1445618017143508335, guid: 73d0f857535c74dc1a091dbfa9b99601,
         type: 3}
