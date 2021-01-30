@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //掛在Canvas上，控管所有UI的生成和隱藏
-public class UIControl : MonoBehaviour
+public class UIControl : SingletonMonoBehavior<UIControl>
 {
     [System.Serializable]public struct ui
     {

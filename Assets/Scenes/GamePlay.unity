@@ -356,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48131322698a462eb3c66d03baf8b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiControl: {fileID: 0}
 --- !u!114 &316610536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +658,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.2184153
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -683,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522369282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 208623362}
@@ -2061,6 +2060,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445618017143508334, guid: 73d0f857535c74dc1a091dbfa9b99601,
+        type: 3}
+      propertyPath: LeftTurningSpeed
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445618017143508334, guid: 73d0f857535c74dc1a091dbfa9b99601,
+        type: 3}
+      propertyPath: RightTurningSpeed
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1445618017143508335, guid: 73d0f857535c74dc1a091dbfa9b99601,
         type: 3}
