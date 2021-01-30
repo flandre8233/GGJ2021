@@ -10,12 +10,15 @@ public class ThrowCollision : MonoBehaviour
         {
             return;
         }
-        GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
-        Instantiate(ExplosionPrefab, gameObject.transform.position, GetRandomAngles());
+        if (other.tag == "Untagged")
+        {
+            return;
+        }
+
 
         if (other.tag == "Throw")
         {
-            other.transform.GetComponent<Throw>().ReSetThrowing();
+            other.transform.GetComponent<Throwing>().ReSetThrowing();
         }
 
         if (other.tag == "Core")
@@ -29,8 +32,16 @@ public class ThrowCollision : MonoBehaviour
             {
                 OnHitBlueCore();
             }
+
+            if (TargetShipBelongCode == transform.GetComponent<Parts>().Belong)
+            {
+                return;
+            }
+
         }
-        transform.GetComponent<Throw>().ReSetThrowing();
+        GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
+        Instantiate(ExplosionPrefab, gameObject.transform.position, GetRandomAngles());
+        transform.GetComponent<Throwing>().ReSetThrowing();
     }
 
     Quaternion GetRandomAngles()

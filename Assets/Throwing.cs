@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Throw : MonoBehaviour
+public class Throwing : MonoBehaviour
 {
-    // 0 : white
-    // 1 : Red 
-    // 2 : blue 
-    public int Belong;
+  
 
     Vector3 OrlDir;
     float Speed;
+
+    public static Throwing Create(GameObject TargetObject)
+    {
+        Throwing Ret = TargetObject.AddComponent<Throwing>();
+        return Ret;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +29,7 @@ public class Throw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, Speed*60 * Time.deltaTime));
+        transform.Rotate(new Vector3(0, 0, Speed * 60 * Time.deltaTime));
         transform.position += OrlDir * Time.deltaTime * Speed;
     }
 
@@ -41,7 +45,7 @@ public class Throw : MonoBehaviour
         SetRandomOrlDir();
     }
 
-     void SetRandomOrlDir()
+    void SetRandomOrlDir()
     {
         OrlDir = Random.insideUnitCircle.normalized;
     }

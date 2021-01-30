@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour, IThrow, IParts
 {
+    // 0 : white
+    // 1 : Red 
+    // 2 : blue 
     [SerializeField]
     int ID;
+
+    public int Belong;
     protected Ship Parentship;
 
     public void Init(int _ID, Ship _Parentship)
     {
         ID = _ID;
         Parentship = _Parentship;
+        Belong = Parentship.IsRed ? 1 : 2;
     }
 
 
     public virtual void Throw()
     {
-        gameObject.AddComponent<Throw>();
+        Throwing.Create(gameObject);
         Detach();
     }
 
