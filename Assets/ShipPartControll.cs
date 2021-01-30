@@ -51,4 +51,8 @@ public class ShipPartControll : MonoBehaviour
 
         PartsListener.instance.OnSomeShipRemoveParts(ship, Index);
     }
+
+    public bool IsNeedThisParts(int ID){
+        return Inventory[ID] == null;
+    }
 }

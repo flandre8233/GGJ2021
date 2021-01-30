@@ -15,9 +15,12 @@ public class AttachTool : MonoBehaviour
                 return;
             }
             int TargetShipBelongCode = other.transform.GetComponent<Parts>().Belong;
-            if (TargetShipBelongCode == (ParentShip.IsRed ? 1 : 2))
+            if (TargetShipBelongCode == (ParentShip.IsRed ? 1 : 2) || TargetShipBelongCode == 0)
             {
-                other.transform.GetComponent<Parts>().ChangeParentShip(ParentShip);
+                if (ParentShip.GetPartControll().IsNeedThisParts(other.transform.GetComponent<Parts>().GetID()))
+                {
+                    other.transform.GetComponent<Parts>().ChangeParentShip(ParentShip);
+                }
             }
         }
     }

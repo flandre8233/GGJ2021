@@ -52,7 +52,14 @@ public class Parts : MonoBehaviour, IThrow, IParts
     public void ChangeParentShip(Ship _ParentShip)
     {
         Parentship = _ParentShip;
+        Belong = _ParentShip.IsRed ? 1 : 2;
         Attach();
+    }
+
+    public void ResetBelong()
+    {
+        Belong = 0;
+        UpdatePaint();
     }
 }
 
