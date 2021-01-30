@@ -20,6 +20,6 @@ public class MainBooster : Parts
     {
         base.Detach();
         OrlSpeed = Parentship.GetMovement().Speed;
-        Parentship.GetMovement().Speed = OrlSpeed / 2;
+        Parentship.GetMovement().Speed = OrlSpeed * 0.75f;
     }
 }
