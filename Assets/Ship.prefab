@@ -366,9 +366,10 @@ GameObject:
   - component: {fileID: 1445618017515762181}
   - component: {fileID: 1445618017515762180}
   - component: {fileID: 7312834214067772096}
+  - component: {fileID: 1275338245}
   m_Layer: 0
   m_Name: ShipCore
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,6 +469,19 @@ MonoBehaviour:
   Sprites:
   - {fileID: 21300000, guid: 6f96c4ce168749a4f9f1ca199416f4c0, type: 3}
   - {fileID: 21300000, guid: d515359ae5f907c47a9ab0d13cb9470c, type: 3}
+--- !u!114 &1275338245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445618017515762182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1f3e314403f447e965a78ea9b89640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentShip: {fileID: 1445618017143508335}
 --- !u!1 &2867359505966582223
 GameObject:
   m_ObjectHideFlags: 0
