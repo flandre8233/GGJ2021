@@ -9,6 +9,7 @@ TagManager:
   - DefaultCanvas
   - Wall
   - Core
+  - Attach
   layers:
   - Default
   - TransparentFX

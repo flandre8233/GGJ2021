@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
-  
-
     Vector3 OrlDir;
     float Speed;
 
@@ -37,6 +35,10 @@ public class Throwing : MonoBehaviour
     {
         Destroy(GetComponent<ThrowMapLimit>());
         Destroy(GetComponent<ThrowCollision>());
+        tag = "Untagged";
+
+        transform.localPosition = new Vector3();
+        transform.localRotation =Quaternion.identity;
     }
 
     public void ReSetThrowing()

@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class ThrowCollision : MonoBehaviour
 {
+    public bool Attachable = false;
+
+    private void Start()
+    {
+        DelayDoEventHandler.Create(CanBeAttach, 3);
+    }
+
+    void CanBeAttach()
+    {
+        Attachable = true;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Wall")
@@ -14,7 +26,10 @@ public class ThrowCollision : MonoBehaviour
         {
             return;
         }
-
+        if (other.tag == "Attach")
+        {
+            return;
+        }
 
         if (other.tag == "Throw")
         {
@@ -32,12 +47,6 @@ public class ThrowCollision : MonoBehaviour
             {
                 OnHitBlueCore();
             }
-
-            if (TargetShipBelongCode == transform.GetComponent<Parts>().Belong)
-            {
-                return;
-            }
-
         }
         GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
         Instantiate(ExplosionPrefab, gameObject.transform.position, GetRandomAngles());

@@ -38,15 +38,17 @@ public class ShipPartControll : MonoBehaviour
         }
     }
 
-    public void AddParts(Parts _Parts){
+    public void AddParts(Parts _Parts)
+    {
         Inventory[_Parts.GetID()] = _Parts;
-
-        PartsListener.instance.OnSomeShipAddParts(ship,_Parts.GetID());
+        _Parts.transform.parent = PartsPoints[_Parts.GetID()];
+        PartsListener.instance.OnSomeShipAddParts(ship, _Parts.GetID());
     }
 
-    public void RemoveParts(int Index){
+    public void RemoveParts(int Index)
+    {
         Inventory[Index] = null;
 
-        PartsListener.instance.OnSomeShipRemoveParts(ship,Index);
+        PartsListener.instance.OnSomeShipRemoveParts(ship, Index);
     }
 }

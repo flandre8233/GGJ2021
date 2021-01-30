@@ -14,6 +14,7 @@ public class RightWing : Parts
     {
         base.Attach();
        Parentship.GetMovement().RightTurningSpeed = OrlSpeed;
+       transform.eulerAngles = new Vector3(0,0,70);
     }
 
     public override void Detach()

@@ -18,8 +18,13 @@ public class Parts : MonoBehaviour, IThrow, IParts
         ID = _ID;
         Parentship = _Parentship;
         Belong = Parentship.IsRed ? 1 : 2;
+        UpdatePaint();
     }
 
+    void UpdatePaint()
+    {
+        GetComponent<SpriteRenderer>().sprite = PartsViewPainter.instance.GetNewPaint(ID, Belong);
+    }
 
     public virtual void Throw()
     {
@@ -29,7 +34,9 @@ public class Parts : MonoBehaviour, IThrow, IParts
 
     public virtual void Attach()
     {
+        Destroy(GetComponent<Throwing>());
         Parentship.GetPartControll().AddParts(this);
+        UpdatePaint();
     }
 
     public virtual void Detach()
@@ -40,6 +47,12 @@ public class Parts : MonoBehaviour, IThrow, IParts
     public int GetID()
     {
         return ID;
+    }
+
+    public void ChangeParentShip(Ship _ParentShip)
+    {
+        Parentship = _ParentShip;
+        Attach();
     }
 }
 

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ShipCore : MonoBehaviour
 {
-    [SerializeField]
-    Ship ParentShip;
+    public Ship ParentShip;
 
   public int GetBelong(){
       return ParentShip.IsRed ? 1 : 2;
