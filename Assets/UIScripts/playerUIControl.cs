@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class playerUIControl : MonoBehaviour
 {
-    public List<UIItem> initUIList;
     public UIInventory uiInvertory = new UIInventory();
     public UIControl uIControl;
     public PlayerType playerType;
     void Start()
     {
         uIControl = FindObjectOfType<UIControl>();
-        uiInvertory.InitInventory(initUIList);
+        uiInvertory.InitInventory(this);
     }
 
     // Update is called once per frame
@@ -20,9 +19,11 @@ public class playerUIControl : MonoBehaviour
         //按下空白鍵隨機刪除UI
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            var result = uiInvertory.RemoveUI();
+            var result = uiInvertory.RemoveFromInventory();
             if(result != null)
-                uIControl.RemoveUI(result, playerType);
+            {
+                //uIControl.RemoveUI(result, playerType, this.transform);
+            }
         }
     }
 
@@ -34,19 +35,13 @@ public class playerUIControl : MonoBehaviour
         if(col.GetComponent<UIObject>())
         {
             
-            result = uiInvertory.AddUI(col.GetComponent<UIObject>().uIItem);
-            Debug.Log(result); 
+            result = uiInvertory.AddToInventory(col.GetComponent<UIObject>().uIItem);
+            //Debug.Log(result); 
         }
         if(result)
         {
-            uIControl.AddUI(col.GetComponent<UIObject>().uIItem, playerType);
+            //uIControl.AddUI(col.GetComponent<UIObject>().uIItem, playerType);
         }
     }
 }
 
-
-public enum PlayerType
-{
-    Player1,
-    Player2
-}
