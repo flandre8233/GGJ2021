@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour, IThrow
 {
-    [SerializeField]
-    Ship ship;
-    public static Parts Create(GameObject TargetObject, Ship ParentShip)
+    Ship Parentship;
+    public static Parts Create(GameObject TargetObject , Ship ship)
     {
         Parts Ret = TargetObject.AddComponent<Parts>();
-        Ret.ship = ParentShip;
+        Ret.Parentship = ship;
         return Ret;
     }
 
@@ -18,10 +17,6 @@ public class Parts : MonoBehaviour, IThrow
         gameObject.AddComponent<Throw>();
     }
 
-    public Ship GetShip()
-    {
-        return ship;
-    }
 }
 
 public interface IThrow
