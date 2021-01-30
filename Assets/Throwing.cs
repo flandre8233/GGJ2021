@@ -4,27 +4,43 @@ using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
+    public bool Attachable = false;
     Vector3 OrlDir;
     float Speed;
 
     public static Throwing Create(GameObject TargetObject)
     {
+        if (TargetObject.GetComponent<Throwing>())
+        {
+            return TargetObject.GetComponent<Throwing>();
+        }
         Throwing Ret = TargetObject.AddComponent<Throwing>();
+        Ret.tag = "Throw";
+        Ret.gameObject.AddComponent<ThrowCollision>();
         return Ret;
+    }
+
+    void CanBeAttach()
+    {
+        Attachable = true;
     }
 
     protected virtual void Start()
     {
-        tag = "Throw";
-        if(transform.parent){
-        OrlDir = transform.parent.up;
-        }else{
+        DelayDoEventHandler.Create(CanBeAttach, 3);
+
+       
+        if (transform.parent)
+        {
+            OrlDir = transform.parent.up;
+        }
+        else
+        {
             SetRandomOrlDir();
         }
         transform.parent = null;
         gameObject.AddComponent<ThrowMapLimit>();
-        gameObject.AddComponent<ThrowCollision>();
-        Speed = 5;
+        Speed = 10;
     }
 
     // Update is called once per frame
@@ -36,17 +52,23 @@ public class Throwing : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(GetComponent<ThrowMapLimit>());
-        Destroy(GetComponent<ThrowCollision>());
+        if (GetComponent<ThrowMapLimit>())
+        {
+            Destroy(GetComponent<ThrowMapLimit>());
+        }
+        if (GetComponent<ThrowCollision>())
+        {
+            Destroy(GetComponent<ThrowCollision>());
+        }
         tag = "Untagged";
 
         transform.localPosition = new Vector3();
-        transform.localRotation =Quaternion.identity;
+        transform.localRotation = Quaternion.identity;
     }
 
     public void ReSetThrowing()
     {
-        Speed = Random.Range(1f, 7.5f);
+        Speed = Random.Range(5f, 10f);
         SetRandomOrlDir();
     }
 

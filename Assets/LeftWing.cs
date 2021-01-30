@@ -21,6 +21,6 @@ public class LeftWing : Parts
     {
         base.Detach(); 
         OrlSpeed = Parentship.GetMovement().LeftTurningSpeed;
-        Parentship.GetMovement().LeftTurningSpeed = OrlSpeed / 4;
+        Parentship.GetMovement().LeftTurningSpeed = OrlSpeed * 0.75f;
     }
 }

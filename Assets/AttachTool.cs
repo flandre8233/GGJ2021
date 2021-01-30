@@ -10,11 +10,11 @@ public class AttachTool : MonoBehaviour
     {
         if (other.tag == "Safe")
         {
-            if (!other.transform.GetComponent<ThrowCollision>().Attachable)
+            if (!other.transform.GetComponent<Throwing>().Attachable)
             {
                 return;
             }
-            int TargetShipBelongCode = other.transform.GetComponent<Parts>().Belong;
+            int TargetShipBelongCode = other.transform.GetComponent<Parts>()._Belong;
             if (TargetShipBelongCode == (ParentShip.IsRed ? 1 : 2) || TargetShipBelongCode == 0)
             {
                 if (ParentShip.GetPartControll().IsNeedThisParts(other.transform.GetComponent<Parts>().GetID()))

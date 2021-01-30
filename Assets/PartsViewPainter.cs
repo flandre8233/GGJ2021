@@ -28,7 +28,6 @@ public class PartsViewPainter : SingletonMonoBehavior<PartsViewPainter>
 
     private void Start()
     {
-        print("Start PainterDictionary");
         PainterDictionary = new Dictionary<int, PartsPaintDataBase>();
         PainterDictionary.Add(0, CrewSprites);
         PainterDictionary.Add(1, CannonSprites);
@@ -43,8 +42,6 @@ public class PartsViewPainter : SingletonMonoBehavior<PartsViewPainter>
 
     public Sprite GetNewPaint(int PartsID, int BelongBy)
     {
-
-        print("GetNewPaint : " + PartsID + "  " + BelongBy);
         if (PainterDictionary == null)
         {
             Start();

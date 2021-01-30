@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class ThrowCollision : MonoBehaviour
 {
-    public bool Attachable = false;
-
-    private void Start()
-    {
-        DelayDoEventHandler.Create(CanBeAttach, 3);
-    }
-
-    void CanBeAttach()
-    {
-        Attachable = true;
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (gameObject.tag == "Safe")
+        {
+            return;
+        }
+
         if (other.tag == "Wall")
         {
             return;
@@ -29,9 +22,13 @@ public class ThrowCollision : MonoBehaviour
         if (other.tag == "Attach")
         {
             return;
-        }if (other.tag == "Safe")
+        }
+        if (other.tag == "Safe")
         {
             return;
+        }
+        if(other.tag == "PowerCore"){
+
         }
 
         if (other.tag == "Throw")
@@ -42,7 +39,7 @@ public class ThrowCollision : MonoBehaviour
         if (other.tag == "Core")
         {
             int TargetShipBelongCode = other.transform.GetComponent<ShipCore>().GetBelong();
-            if (TargetShipBelongCode != GetComponent<Parts>().Belong)
+            if (TargetShipBelongCode != GetComponent<Parts>()._Belong)
             {
                 OnHitEnemyCore(other.transform.GetComponent<ShipCore>().ParentShip);
             }
@@ -52,8 +49,9 @@ public class ThrowCollision : MonoBehaviour
         if (transform.GetComponent<Throwing>())
         {
             transform.GetComponent<Throwing>().ReSetThrowing();
+            GetComponent<Parts>().ResetBelong();
+            
         }
-        GetComponent<Parts>().ResetBelong();
 
     }
 

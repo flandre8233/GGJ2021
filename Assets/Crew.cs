@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Crew : Parts
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public override void Throw()
     {
         base.Throw();
@@ -37,6 +31,6 @@ public class Crew : Parts
         base.Detach();
         Parentship.GetCoreSpiteControll().SetCoreSpritesBroken(true);
         Invoke("LostControll", 0.1f);
-        Invoke("RecoverControll", 0.1f + 1);
+        Invoke("RecoverControll", 0.1f + 2);
     }
 }

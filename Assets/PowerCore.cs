@@ -2,37 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerCore : MonoBehaviour
+public class PowerCore : SingletonMonoBehavior<PowerCore>
 {
     [SerializeField]
-    Ship CapturedByShip;
+    List<Ship> CapturedByShip;
 
-    DelayDoEventHandler CaptureCountdown;
+    float EntryTime;
 
     public void OnCapturedEnter(Ship PlayerShip)
     {
-        CapturedByShip = PlayerShip;
-        CaptureCountdown = DelayDoEventHandler.Create(OnCaptureTimeEnd, 5f);
+        CapturedByShip.Add(PlayerShip);
+        EntryTime = Time.time;
     }
     public void OnCapturedExit(Ship PlayerShip)
     {
-        if (CapturedByShip == PlayerShip)
-        {
-            CapturedByShip = null;
-            if (CaptureCountdown != null)
-            {
-                Destroy(CaptureCountdown.gameObject);
-            }
-        }
-
+        CapturedByShip.Remove(PlayerShip);
+        EntryTime = int.MaxValue;
     }
 
     public void OnCaptureTimeEnd()
     {
         print("OnCaptureTimeEnd");
-        if (CaptureCountdown != null)
+        if (CapturedByShip.Count < 2)
         {
-            Destroy(CaptureCountdown.gameObject);
+            print("Normal End");
+        }
+        else
+        {
+            print("hidden End");
+        }
+    }
+
+    private void Update()
+    {
+        if (Time.time - EntryTime >= 5)
+        {
+            OnCaptureTimeEnd();
+            EntryTime = int.MaxValue;
         }
     }
 }

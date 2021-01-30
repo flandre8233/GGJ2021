@@ -26,9 +26,9 @@ public class PowerCoreCollision : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Core")
         {
-            Ship TouchedShip = other.GetComponent<PartCollider>().GetShip();
+            Ship TouchedShip = other.GetComponent<ShipCore>().ParentShip;
             Core.OnCapturedEnter(TouchedShip);
         }
     }
@@ -40,9 +40,9 @@ public class PowerCoreCollision : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Core")
         {
-            Ship TouchedShip = other.GetComponent<PartCollider>().GetShip();
+            Ship TouchedShip = other.GetComponent<ShipCore>().ParentShip;
             Core.OnCapturedExit(TouchedShip);
         }
     }

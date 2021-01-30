@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class inputControll : MonoBehaviour
 {
     [SerializeField]
-    Ship Ship;
+    public Ship Ship;
     protected IkeyBind keyBind;
     protected virtual void Start()
     {

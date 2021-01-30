@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameTimeEnd : MonoBehaviour
 {
     [SerializeField]
+    GameObject CoreObject;
+    [SerializeField]
     float PlayTime;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class GameTimeEnd : MonoBehaviour
     void ShowUpPowerCore()
     {
         print("ShowUpPowerCore");
+        CoreObject.SetActive(true);
     }
 
     void Lose()

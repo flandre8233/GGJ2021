@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27705bb76d34e4584a361f3e48894eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoreObject: {fileID: 557808435}
   PlayTime: 10
 --- !u!4 &316610533
 Transform:
@@ -995,6 +996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd14cf03a7b14bbb9e1e60b93a398af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RedControll: {fileID: 249453915}
+  BlueControll: {fileID: 249453913}
+  CameraTargetGroup: {fileID: 871439037}
 --- !u!1 &336164426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &557808436
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,7 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1b1e008974c4c4bbe5804393895a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CapturedByShip: {fileID: 0}
+  CapturedByShip: []
 --- !u!1 &573483542
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,7 +5352,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 3
 --- !u!212 &2060565479
 SpriteRenderer:
   m_ObjectHideFlags: 0

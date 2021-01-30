@@ -10,7 +10,15 @@ public class Parts : MonoBehaviour, IThrow, IParts
     [SerializeField]
     int ID;
 
-    public int Belong;
+    public int _Belong;
+    public int Belong
+    {
+        set
+        {
+            _Belong = value;
+            UpdatePaint();
+        }
+    }
     protected Ship Parentship;
 
     public void Init(int _ID, Ship _Parentship)
@@ -18,29 +26,30 @@ public class Parts : MonoBehaviour, IThrow, IParts
         ID = _ID;
         Parentship = _Parentship;
         Belong = Parentship.IsRed ? 1 : 2;
-        UpdatePaint();
     }
 
     void UpdatePaint()
     {
-        GetComponent<SpriteRenderer>().sprite = PartsViewPainter.instance.GetNewPaint(ID, Belong);
+        GetComponent<SpriteRenderer>().sprite = PartsViewPainter.instance.GetNewPaint(ID, _Belong);
     }
 
     public virtual void Throw()
     {
         Throwing.Create(gameObject);
         Detach();
-    }public virtual void ThrowRandom()
+    }
+    public virtual void ThrowRandom()
     {
         ThrowingRandom.Create(gameObject);
         Detach();
+        ResetBelong();
     }
 
     public virtual void Attach()
     {
         Destroy(GetComponent<Throwing>());
         Parentship.GetPartControll().AddParts(this);
-        UpdatePaint();
+        tag = "Untagged";
     }
 
     public virtual void Detach()
@@ -63,8 +72,11 @@ public class Parts : MonoBehaviour, IThrow, IParts
     public void ResetBelong()
     {
         Belong = 0;
-        UpdatePaint();
         gameObject.tag = "Safe";
+        if (GetComponent<ThrowCollision>())
+        {
+            Destroy(GetComponent<ThrowCollision>());
+        }
     }
 }
 

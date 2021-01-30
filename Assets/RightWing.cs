@@ -25,6 +25,6 @@ public class RightWing : Parts
     {
         base.Detach();
        OrlSpeed = Parentship.GetMovement().RightTurningSpeed;
-       Parentship.GetMovement().RightTurningSpeed = OrlSpeed/4;
+       Parentship.GetMovement().RightTurningSpeed = OrlSpeed* 0.75f;
     }
 }
