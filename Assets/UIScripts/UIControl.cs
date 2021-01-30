@@ -18,24 +18,26 @@ public class UIControl : MonoBehaviour
     
     void Awake()
     {
-        var tmp = new Dictionary<UIType, GameObject>();
+        var tmp1 = new Dictionary<UIType, GameObject>();
+        var tmp2 = new Dictionary<UIType, GameObject>();
         foreach (var i in UIListBlue)
         {
-            tmp.Add(i.types, i.uiImage);
+            tmp1.Add(i.types, i.uiImage);
         }
-        uiDic.Add(PlayerType.Blue, tmp);
+        uiDic.Add(PlayerType.Blue, tmp1);
+        
         foreach (var i in UIListRed)
         {
-            tmp.Add(i.types, i.uiImage);
+            tmp2.Add(i.types, i.uiImage);
         }
-        uiDic.Add(PlayerType.Red, tmp);
+        uiDic.Add(PlayerType.Red, tmp2);
     }
 
     //增加UI至Canvas
     public void AddRandomUI(UIType uIType, PlayerType player)
     {
         List<UIItem> randomBase = new List<UIItem>();
-        foreach(var i in uIBase.blue_UIItems)
+        foreach(var i in uIBase.GetUIItems(player))
         {
             if(i.uIType == uIType)
             {
@@ -50,6 +52,7 @@ public class UIControl : MonoBehaviour
     //從Canvas隱藏UI
     public void RemoveUI(UIType uIType, PlayerType player)
     {
+        Debug.Log(uiDic[player][uIType].name);
         uiDic[player][uIType].GetComponent<Image>().color = Color.clear;
     }
 }
