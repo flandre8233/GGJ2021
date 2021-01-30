@@ -51,6 +51,10 @@ public abstract class inputControll : MonoBehaviour
         globalUpdateManager.UnregisterUpdateDg(ToUpdate);
     }
 
+    private void OnDestroy() {
+        RemoveUpdate();
+    }
+
 }
 
 public interface IkeyBind

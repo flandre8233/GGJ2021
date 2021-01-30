@@ -1644,7 +1644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522369282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 208623362}
@@ -1887,6 +1887,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1b1e008974c4c4bbe5804393895a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputControll: {fileID: 249453915}
+  RedUI: {fileID: 225838013}
+  BlueUI: {fileID: 1792554078}
+  VirtualCamera: {fileID: 522369287}
   CapturedByShip: []
 --- !u!1 &573483542
 GameObject:
@@ -4085,6 +4089,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294814108}
   m_CullTransparentMesh: 0
+--- !u!1 &1385308890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1445618017143508330, guid: 73d0f857535c74dc1a091dbfa9b99601,
+    type: 3}
+  m_PrefabInstance: {fileID: 1445618016240430082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1385308895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385308890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b139c13a758b44d9daf5ddb3ff50dcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &1389909942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,7 +4584,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1445618016240430082}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1385308890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73c6079fd5dc64c65ad7e8267cf8c609, type: 3}
