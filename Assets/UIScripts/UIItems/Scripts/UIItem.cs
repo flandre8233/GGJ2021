@@ -33,7 +33,9 @@ public enum UIStyle
 {
     Default,
     AMONG_US,
-    GAME_3
+    GAME_3,
+    Mincraft,
+    Memes
 }
 
 

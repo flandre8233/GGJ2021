@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63adf58a125f6e444a7c8361b1083252, type: 3}
-  m_Name: Among Us Crew Screen
+  m_Name: R_Among Us Crew Screen
   m_EditorClassIdentifier: 
   id: 2
   uiName: Crew Screen2

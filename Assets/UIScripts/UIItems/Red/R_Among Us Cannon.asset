@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f4295749d772364abe25ff13b9f3420, type: 3}
-  m_Name: Among Us Cannon
+  m_Name: R_Among Us Cannon
   m_EditorClassIdentifier: 
   id: 1
   uiName: Main Cannon2

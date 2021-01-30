@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac9102dad1b4894394a392657d913ad, type: 3}
-  m_Name: Default Mission
+  m_Name: R_Default Mission
   m_EditorClassIdentifier: 
   id: 5
   uiName: Mission1

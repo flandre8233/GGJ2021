@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b251825a3da2914d8f7bbdb1c41eca0, type: 3}
-  m_Name: Among Us System
+  m_Name: R_Among Us System
   m_EditorClassIdentifier: 
   id: 4
   uiName: System2

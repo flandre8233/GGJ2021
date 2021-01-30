@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 8832088060253976219
     second: MainBooster_FireAnimation_3
+  - first:
+      213: 7278750343909212993
+    second: SideBooster_fire_animation-sheet_0
+  - first:
+      213: -6818934936477869078
+    second: SideBooster_fire_animation-sheet_1
+  - first:
+      213: -2014554385649766020
+    second: SideBooster_fire_animation-sheet_2
+  - first:
+      213: 2213433140927641313
+    second: SideBooster_fire_animation-sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,85 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainBooster_FireAnimation_0
+      name: SideBooster_fire_animation-sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 70.5
-        height: 188
+        width: 50
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6e02d9476b7acc20800000000000000
-      internalID: 3227527766514732655
+      spriteID: 14306719fd0530560800000000000000
+      internalID: 7278750343909212993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainBooster_FireAnimation_1
+      name: SideBooster_fire_animation-sheet_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 50
         y: 0
-        width: 70.5
-        height: 188
+        width: 50
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c95b60de7c6c24f90800000000000000
-      internalID: -6970790711238675044
+      spriteID: aeb5cb4bdc64e51a0800000000000000
+      internalID: -6818934936477869078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainBooster_FireAnimation_2
+      name: SideBooster_fire_animation-sheet_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 100
         y: 0
-        width: 70.5
-        height: 188
+        width: 50
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 058a474e95cad29f0800000000000000
-      internalID: -491547282228598704
+      spriteID: c71f3a6b57dda04e0800000000000000
+      internalID: -2014554385649766020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainBooster_FireAnimation_3
+      name: SideBooster_fire_animation-sheet_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 150
         y: 0
-        width: 70.5
-        height: 188
+        width: 50
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b963860eb41e19a70800000000000000
-      internalID: 8832088060253976219
+      spriteID: 1e6b113e6b1b7be10800000000000000
+      internalID: 2213433140927641313
       vertices: []
       indices: 
       edges: []

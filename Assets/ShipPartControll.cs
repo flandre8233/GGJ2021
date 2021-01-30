@@ -93,6 +93,7 @@ public class ShipPartControll : MonoBehaviour
         }else{
             Debug.Log("Set Dead");
             Destroy( ship.gameObject);
+            GameControll.instance.OnSomeShipDead(ship.IsRed);
         }
 
     }
