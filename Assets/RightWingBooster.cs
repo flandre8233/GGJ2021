@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannon : Parts
+public class RightWingBooster : Parts
 {
-    public override void Throw()
+     public override void Throw()
     {
         base.Throw();
     }

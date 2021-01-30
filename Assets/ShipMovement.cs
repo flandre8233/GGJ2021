@@ -7,13 +7,13 @@ public class ShipMovement : MonoBehaviour
 Rigidbody2D Rigidbody;
 
 [SerializeField]
-float Speed;
+public float Speed;
 [SerializeField]
-float LeftTurningSpeed;
+public float LeftTurningSpeed;
 
 float ForwardForce;
 [SerializeField]
-float RightTurningSpeed;
+public float RightTurningSpeed;
 
 
     // Start is called before the first frame update

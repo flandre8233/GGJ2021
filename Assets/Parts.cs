@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour, IThrow, IParts
 {
+    [SerializeField]
+    int ID;
     protected Ship Parentship;
-    public static Parts Create(GameObject TargetObject, Ship ship)
+
+    public void Init(int _ID, Ship _Parentship)
     {
-        Parts Ret = TargetObject.AddComponent<Parts>();
-        Ret.Parentship = ship;
-        return Ret;
+        ID = _ID;
+        Parentship = _Parentship;
     }
+
 
     public virtual void Throw()
     {
@@ -20,12 +23,18 @@ public class Parts : MonoBehaviour, IThrow, IParts
 
     public virtual void Attach()
     {
+        Parentship.GetPartControll().AddParts(this);
     }
 
     public virtual void Detach()
     {
+        Parentship.GetPartControll().RemoveParts(ID);
     }
 
+    public int GetID()
+    {
+        return ID;
+    }
 }
 
 public interface IThrow

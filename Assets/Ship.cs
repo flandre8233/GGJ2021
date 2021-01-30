@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    public bool IsRed;
     public inputControll controllBy;
     ShipMovement movement;
     ShipAttack Attack;
+
+    [SerializeField]
+    ShipPartControll PartControll;
+    [SerializeField]
+    CoreSprites CoreSpiteControll;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +24,16 @@ public class Ship : MonoBehaviour
     public ShipMovement GetMovement()
     {
         return movement;
-    } public ShipAttack GetAttack()
+    }
+    public ShipAttack GetAttack()
     {
         return Attack;
+    }
+    public ShipPartControll GetPartControll()
+    {
+        return PartControll;
+    }public CoreSprites GetCoreSpiteControll()
+    {
+        return CoreSpiteControll;
     }
 }
