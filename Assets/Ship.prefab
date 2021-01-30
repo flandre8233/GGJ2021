@@ -368,8 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
-  LeftTurningSpeed: 80
-  RightTurningSpeed: 80
+  LeftTurningSpeed: 110
+  RightTurningSpeed: 110
 --- !u!114 &1445618017143508329
 MonoBehaviour:
   m_ObjectHideFlags: 0
