@@ -7,6 +7,15 @@ public class Cannon : Parts
     public override void Throw()
     {
         base.Throw();
-        gameObject.AddComponent<AmongUsEasterEgg>();
+    }
+
+     public override void Attach()
+    {
+        base.Attach();
+    }
+
+    public override void Detach()
+    {
+        base.Detach();
     }
 }

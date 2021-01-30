@@ -18,7 +18,8 @@ public class Crew : Parts
 
     public override void Attach()
     {
-
+        base.Attach();
+        Parentship.GetCoreSpiteControll().SetCoreSpritesBroken(false);
     }
 
     void LostControll()
@@ -33,6 +34,8 @@ public class Crew : Parts
 
     public override void Detach()
     {
+        base.Detach();
+        Parentship.GetCoreSpiteControll().SetCoreSpritesBroken(true);
         Invoke("LostControll", 0.1f);
         Invoke("RecoverControll", 0.1f + 1);
     }

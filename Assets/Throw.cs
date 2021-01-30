@@ -11,8 +11,8 @@ public class Throw : MonoBehaviour
         tag = "Throw";
         OrlDir = transform.parent.up;
         transform.parent = null;
-        GetComponent<Collider2D>().isTrigger = true;
-        DelayDoEventHandler.Create(ResetCollider, 0.5f);
+        gameObject.AddComponent<ThrowMapLimit>();
+        gameObject.AddComponent<ThrowCollision>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,8 @@ public class Throw : MonoBehaviour
         transform.position += OrlDir * Time.deltaTime * 5;
     }
 
-    void ResetCollider()
-    {
-        GetComponent<Collider2D>().isTrigger = false;
+    private void OnDestroy() {
+        Destroy( GetComponent<ThrowMapLimit>() );
+        Destroy( GetComponent<ThrowCollision>() );
     }
 }
