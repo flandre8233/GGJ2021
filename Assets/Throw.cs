@@ -9,7 +9,7 @@ public class Throw : MonoBehaviour
     void Start()
     {
         tag = "Throw";
-        OrlDir = transform.up;
+        OrlDir = transform.parent.up;
         transform.parent = null;
         GetComponent<Collider2D>().isTrigger = true;
         DelayDoEventHandler.Create(ResetCollider, 0.5f);
