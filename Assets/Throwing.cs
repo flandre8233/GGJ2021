@@ -52,7 +52,11 @@ public class Throwing : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (GetComponent<ThrowMapLimit>())
+       SetFree();
+    }
+
+    public void SetFree(){
+         if (GetComponent<ThrowMapLimit>())
         {
             Destroy(GetComponent<ThrowMapLimit>());
         }
@@ -61,7 +65,6 @@ public class Throwing : MonoBehaviour
             Destroy(GetComponent<ThrowCollision>());
         }
         tag = "Untagged";
-
     }
 
     public void ReSetThrowing()

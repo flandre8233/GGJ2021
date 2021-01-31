@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 public class PowerCore : SingletonMonoBehavior<PowerCore>
 {
     bool IsEnd;
@@ -80,6 +81,11 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
                     RedUI.SetActive(false);
                     BlueUI.SetActive(false);
                     Destroy(inputControll.gameObject);
+                    List<Throwing> ThrowingList = GameObject.FindGameObjectsWithTag("Throw").Where(x => x.GetComponent<Throwing>()).Select(x => x.GetComponent<Throwing>()).ToList();
+                    foreach (var item in ThrowingList)
+                    {
+                        item.SetFree();
+                    }
                 }
                 else
                 {
@@ -116,6 +122,11 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
                 RedUI.SetActive(false);
                 BlueUI.SetActive(false);
                 Destroy(inputControll.gameObject);
+                List<Throwing> ThrowingList = GameObject.FindGameObjectsWithTag("Throw").Where(x => x.GetComponent<Throwing>()).Select(x => x.GetComponent<Throwing>()).ToList();
+                foreach (var item in ThrowingList)
+                {
+                    item.SetFree();
+                }
             }
             else
             {
