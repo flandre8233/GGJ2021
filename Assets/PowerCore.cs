@@ -59,17 +59,26 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         {
             if (CapturedByShip.Count == 1)
             {
-                print("Normal End");
-                Winner = CapturedByShip[0];
-                Winner.GetComponent<EndGameAnimation>().SetAnimation();
+                if (CapturedByShip[0])
+                {
+                    print("Normal End");
+                    Winner = CapturedByShip[0];
+                    Winner.GetComponent<EndGameAnimation>().SetAnimation();
 
-                AnglesFloatLerp = new FloatLerp();
-                AnglesFloatLerp.startLerp(Winner.transform.rotation.eulerAngles.z, -90f, 0.5f);
+                    AnglesFloatLerp = new FloatLerp();
+                    AnglesFloatLerp.startLerp(Winner.transform.rotation.eulerAngles.z, -90f, 0.5f);
 
-                Vector3Lerp = new vector3Lerp();
-                Vector3Lerp.startLerp(Winner.transform.position, new Vector3(-1, 2.8f, 0), 0.75f);
+                    Vector3Lerp = new vector3Lerp();
+                    Vector3Lerp.startLerp(Winner.transform.position, new Vector3(-1, 2.8f, 0), 0.75f);
 
-                Invoke("NormalEndProgress2", 2.25f);
+                    Invoke("NormalEndProgress2", 2.25f);
+                }
+                else
+                {
+                    EntryTime = int.MaxValue;
+                }
+
+
             }
 
         }
@@ -77,24 +86,33 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         {
             print("hidden End");
 
-            Winner = CapturedByShip[0];
-            SecondWinner = CapturedByShip[1];
-            Winner.GetComponent<EndGameAnimation>().SetAnimation();
-            SecondWinner.GetComponent<EndGameAnimation>().SetAnimation();
+            if (CapturedByShip[0] && CapturedByShip[1])
+            {
+                Winner = CapturedByShip[0];
+                SecondWinner = CapturedByShip[1];
+                Winner.GetComponent<EndGameAnimation>().SetAnimation();
+                SecondWinner.GetComponent<EndGameAnimation>().SetAnimation();
 
-            AnglesFloatLerp = new FloatLerp();
-            AnglesFloatLerp.startLerp(Winner.transform.rotation.eulerAngles.z, 0, 0.5f);
-            AnglesFloatLerpEx1 = new FloatLerp();
-            AnglesFloatLerpEx1.startLerp(SecondWinner.transform.rotation.eulerAngles.z, 0, 0.5f);
-            AnglesFloatLerpEx2 = new FloatLerp();
-            AnglesFloatLerpEx2.startLerp(1, -1, 0.5f);
+                AnglesFloatLerp = new FloatLerp();
+                AnglesFloatLerp.startLerp(Winner.transform.rotation.eulerAngles.z, 0, 0.5f);
+                AnglesFloatLerpEx1 = new FloatLerp();
+                AnglesFloatLerpEx1.startLerp(SecondWinner.transform.rotation.eulerAngles.z, 0, 0.5f);
+                AnglesFloatLerpEx2 = new FloatLerp();
+                AnglesFloatLerpEx2.startLerp(1, -1, 0.5f);
 
-            Vector3Lerp = new vector3Lerp();
-            Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0.8f, 2.8f, 0), 0.75f);
-            Vector3LerpEx1 = new vector3Lerp();
-            Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, 2.8f, 0), 0.75f);
+                Vector3Lerp = new vector3Lerp();
+                Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0.8f, 2.8f, 0), 0.75f);
+                Vector3LerpEx1 = new vector3Lerp();
+                Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, 2.8f, 0), 0.75f);
 
-            Invoke("HiddenEndProgress2", 2.5f);
+                Invoke("HiddenEndProgress2", 2.5f);
+            }
+            else
+            {
+                EntryTime = int.MaxValue;
+            }
+
+
         }
         RedUI.SetActive(false);
         BlueUI.SetActive(false);

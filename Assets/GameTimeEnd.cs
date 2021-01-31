@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameTimeEnd : MonoBehaviour
 {
+
+    
     [SerializeField]
     GameObject CoreObject;
     [SerializeField]

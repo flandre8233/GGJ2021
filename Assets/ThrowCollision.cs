@@ -27,7 +27,8 @@ public class ThrowCollision : MonoBehaviour
         {
             return;
         }
-        if(other.tag == "PowerCore"){
+        if (other.tag == "PowerCore")
+        {
 
         }
 
@@ -46,11 +47,13 @@ public class ThrowCollision : MonoBehaviour
         }
         GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
         Instantiate(ExplosionPrefab, gameObject.transform.position, GetRandomAngles());
+        GameObject SoundPrefab = Resources.Load<GameObject>("HitSound");
+        Instantiate(SoundPrefab, gameObject.transform.position, Quaternion.identity);
         if (transform.GetComponent<Throwing>())
         {
             transform.GetComponent<Throwing>().ReSetThrowing();
             GetComponent<Parts>().ResetBelong();
-            
+
         }
 
     }

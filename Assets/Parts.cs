@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour, IThrow, IParts
 {
+    FloatLerp AnglesFloatLerp;
+    vector3Lerp Vector3Lerp;
+
     // 0 : white
     // 1 : Red 
     // 2 : blue 
@@ -37,6 +40,8 @@ public class Parts : MonoBehaviour, IThrow, IParts
     {
         Throwing.Create(gameObject);
         Detach();
+        GameObject SoundPrefab = Resources.Load<GameObject>("ShootSound");
+        Instantiate(SoundPrefab, gameObject.transform.position, Quaternion.identity);
     }
     public virtual void ThrowRandom()
     {
@@ -50,6 +55,19 @@ public class Parts : MonoBehaviour, IThrow, IParts
         Destroy(GetComponent<Throwing>());
         Parentship.GetPartControll().AddParts(this);
         tag = "Untagged";
+        //transform.localPosition = new Vector3();
+        transform.localRotation = Quaternion.identity;
+        AnglesFloatLerp = new FloatLerp();
+        Vector3Lerp = new vector3Lerp();
+        Vector3Lerp.startLerp(transform.localPosition, new Vector3(), 0.3f);
+    }
+
+    private void Update()
+    {
+        if (Vector3Lerp != null && Vector3Lerp.isLerping)
+        {
+            transform.localPosition = Vector3Lerp.update();
+        }
     }
 
     public virtual void Detach()

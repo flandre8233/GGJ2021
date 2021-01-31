@@ -62,8 +62,6 @@ public class Throwing : MonoBehaviour
         }
         tag = "Untagged";
 
-        transform.localPosition = new Vector3();
-        transform.localRotation = Quaternion.identity;
     }
 
     public void ReSetThrowing()
