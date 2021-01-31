@@ -16,6 +16,7 @@ public class UIControl : MonoBehaviour
     public List<ui> UIListBlue;
     public List<ui> UIListRed;
     public UIBase uIBase;
+    public CanvasGroup StartMenu;
 
     public bool needInit = true;
     void Awake()
@@ -48,6 +49,7 @@ public class UIControl : MonoBehaviour
         {
             InitAllStyleUI(UIStyle.AMONG_US, PlayerType.Red);
             InitAllStyleUI(UIStyle.Default, PlayerType.Blue);
+            StartCoroutine(StartMenuFadeOut());
             GameStarter.instance.OnGameStart();
             needInit = false;
         }
@@ -115,16 +117,26 @@ public class UIControl : MonoBehaviour
         }
     }
 
-
+    //確認雙方按下開始
     public bool CheckStart()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.Alpha0))
             {
                 return true;
             }
         }
         return false;
+    }
+
+    public IEnumerator StartMenuFadeOut()
+    {
+        float fadeTime = 2f;
+        while(StartMenu.alpha >= 0.01){
+            StartMenu.alpha -= Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        StartMenu.alpha = 0;
     }
 }
