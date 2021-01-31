@@ -68,9 +68,13 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
                     AnglesFloatLerp.startLerp(Winner.transform.rotation, Quaternion.Euler(0, 0, -90f), 0.5f);
 
                     Vector3Lerp = new vector3Lerp();
-                    Vector3Lerp.startLerp(Winner.transform.position, new Vector3(-1, .8f, 0), 0.75f);
+                    Vector3Lerp.startLerp(Winner.transform.position, new Vector3(-1, -.8f, 0), 0.75f);
 
                     Invoke("NormalEndProgress2", 2.25f);
+
+                    RedUI.SetActive(false);
+                    BlueUI.SetActive(false);
+                    Destroy(inputControll.gameObject);
                 }
                 else
                 {
@@ -98,22 +102,23 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
                 AnglesFloatLerpEx1.startLerp(SecondWinner.transform.rotation, Quaternion.Euler(0, 0, 0), 0.5f);
                 Invoke("ResetScale", 0.5f);
                 Vector3Lerp = new vector3Lerp();
-                Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0.8f, .8f, 0), 0.75f);
+                Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0.8f, -0.8f, 0), 0.75f);
                 Vector3LerpEx1 = new vector3Lerp();
-                Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, .8f, 0), 0.75f);
+                Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, -.8f, 0), 0.75f);
 
                 Invoke("HiddenEndProgress2", 2.5f);
+
+                RedUI.SetActive(false);
+                BlueUI.SetActive(false);
+                Destroy(inputControll.gameObject);
             }
             else
             {
                 EntryTime = int.MaxValue;
             }
 
-
         }
-        RedUI.SetActive(false);
-        BlueUI.SetActive(false);
-        Destroy(inputControll.gameObject);
+
     }
 
     void ResetScale()
@@ -128,7 +133,7 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
             return;
         }
 
-        if (Time.time - EntryTime >= 5)
+        if (Time.time - EntryTime >= 10)
         {
             OnCaptureTimeEnd();
             EntryTime = int.MaxValue;

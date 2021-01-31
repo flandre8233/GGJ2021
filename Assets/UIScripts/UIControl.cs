@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //掛在Canvas上，控管所有UI的生成和隱藏
-public class UIControl : MonoBehaviour
+public class UIControl : SingletonMonoBehavior<UIControl>
 {
     [System.Serializable]
     public struct ui
@@ -19,8 +19,9 @@ public class UIControl : MonoBehaviour
     public CanvasGroup StartMenu;
 
     public bool needInit = true;
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         var tmp1 = new Dictionary<UIType, GameObject>();
         var tmp2 = new Dictionary<UIType, GameObject>();
         foreach (var i in UIListBlue)
@@ -47,8 +48,7 @@ public class UIControl : MonoBehaviour
 
         if (CheckStart())
         {
-            InitAllStyleUI(UIStyle.AMONG_US, PlayerType.Red);
-            InitAllStyleUI(UIStyle.Default, PlayerType.Blue);
+            
             StartCoroutine(StartMenuFadeOut());
             GameStarter.instance.OnGameStart();
             needInit = false;
@@ -100,7 +100,6 @@ public class UIControl : MonoBehaviour
     //從Canvas隱藏UI
     public void RemoveUI(UIType uIType, PlayerType player)
     {
-        Debug.Log(uiDic[player][uIType].name);
         uiDic[player][uIType].GetComponent<Image>().color = Color.clear;
     }
 

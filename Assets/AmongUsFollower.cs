@@ -20,7 +20,7 @@ public class AmongUsFollower : MonoBehaviour
     private void Update()
     {
         Vector2 MyAnchoredPosition = GetComponent<RectTransform>().anchoredPosition ;
-        GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp( MyAnchoredPosition  , WorldToCanvasPoint(MyCanvas , FollowAt.position) , Time.deltaTime ) ;
+        GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp( MyAnchoredPosition  , WorldToCanvasPoint(MyCanvas , FollowAt.position) , Time.deltaTime * 2 ) ;
     }
 
     public static Vector2 WorldToCanvasPoint(Canvas canvas, Vector3 worldPos)

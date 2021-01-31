@@ -29,7 +29,7 @@ public class ThrowCollision : MonoBehaviour
         }
         if (other.tag == "PowerCore")
         {
-
+            return;
         }
 
         if (other.tag == "Throw")

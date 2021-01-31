@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da340ac275f144c32820345b58d5c5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextShowUpSpeed: 0.05
+  TextShowUpSpeed: 0.03
   InTalking: 0
 --- !u!114 &5261429884422129733
 MonoBehaviour:
@@ -129,6 +129,10 @@ MonoBehaviour:
   - "Forever [\u53F0\u5357-H\u7D44]"
   - SakuraMiko35
   - UsadaPekora
+  - "\u4FEE\u7D0D\u723E"
+  - "\u5927\u78A9"
+  - DING
+  - Told you I
   ConText: ' was not an imposter.'
 --- !u!82 &8791517099409636344
 AudioSource:

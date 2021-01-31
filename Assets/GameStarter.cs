@@ -86,7 +86,6 @@ public class GameStarter : SingletonMonoBehavior<GameStarter>
         GameObject ExplosionPrefab = Resources.Load<GameObject>("Explosion");
         Vector3 SpawnPosition = Core.transform.position;
         Vector3 Rand = Random.insideUnitCircle * 2f;
-        print(Random.insideUnitCircle);
         SpawnPosition += Rand;
         Instantiate(ExplosionPrefab, SpawnPosition, GetRandomAngles());
     }
@@ -138,7 +137,8 @@ public class GameStarter : SingletonMonoBehavior<GameStarter>
 
     public void OnGameStarterAnimationEND()
     {
-
+        UIControl.instance.InitAllStyleUI(UIStyle.AMONG_US, PlayerType.Red);
+        UIControl.instance.InitAllStyleUI(UIStyle.Default, PlayerType.Blue);
     }
 
 }
