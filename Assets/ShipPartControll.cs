@@ -94,6 +94,7 @@ public class ShipPartControll : MonoBehaviour
         else
         {
             Debug.Log("Set Dead");
+            PowerCore.instance.RemoveSomeShip(ship);
             Destroy(ship.gameObject);
             GameControll.instance.OnSomeShipDead(ship.IsRed);
 

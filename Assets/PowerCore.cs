@@ -51,6 +51,11 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         EntryTime = int.MaxValue;
     }
 
+    public void RemoveSomeShip(Ship ship)
+    {
+        CapturedByShip.Remove(ship);
+    }
+
     public void OnCaptureTimeEnd()
     {
         print("OnCaptureTimeEnd");
