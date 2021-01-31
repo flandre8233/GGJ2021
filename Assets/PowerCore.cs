@@ -89,4 +89,10 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         Vector3Lerp = new vector3Lerp();
         Vector3Lerp.startLerp(Winner.transform.position, new Vector3(+200, 2.8f, 0), 20f);
     }
+
+    private void Start()
+    {
+        EntryTime = int.MaxValue;
+
+    }
 }
