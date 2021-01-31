@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour, IThrow, IParts
 {
-    FloatLerp AnglesFloatLerp;
+    QuaternionLerp AnglesLerp;
     vector3Lerp Vector3Lerp;
 
     // 0 : white
@@ -57,7 +57,7 @@ public class Parts : MonoBehaviour, IThrow, IParts
         tag = "Untagged";
         //transform.localPosition = new Vector3();
         transform.localRotation = Quaternion.identity;
-        AnglesFloatLerp = new FloatLerp();
+        AnglesLerp = new QuaternionLerp();
         Vector3Lerp = new vector3Lerp();
         Vector3Lerp.startLerp(transform.localPosition, new Vector3(), 0.3f);
     }

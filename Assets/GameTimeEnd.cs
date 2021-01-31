@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameTimeEnd : MonoBehaviour
+public class GameTimeEnd : SingletonMonoBehavior<GameTimeEnd>
 {
 
-    
+
     [SerializeField]
     GameObject CoreObject;
     [SerializeField]
     float PlayTime;
     // Start is called before the first frame update
-    void Start()
+    public void StartTimeDown()
     {
         DelayDoEventHandler.Create(ShowUpPowerCore, PlayTime / 2);
         DelayDoEventHandler.Create(Lose, PlayTime);
