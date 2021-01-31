@@ -16,6 +16,7 @@ public class UIControl : MonoBehaviour
     public List<ui> UIListRed;
     public UIBase uIBase;
     
+    public bool needInit = true;
     void Awake()
     {
         var tmp1 = new Dictionary<UIType, GameObject>();
@@ -31,6 +32,18 @@ public class UIControl : MonoBehaviour
             tmp2.Add(i.types, i.uiImage);
         }
         uiDic.Add(PlayerType.Red, tmp2);
+        REmoveAllUI();
+        //needInit = false;
+    }
+
+    void Update() 
+    {
+        if(CheckStart())
+        {
+            InitAllStyleUI(UIStyle.AMONG_US, PlayerType.Red);
+            InitAllStyleUI(UIStyle.Default, PlayerType.Blue);
+            needInit = false;
+        }
     }
 
     //增加UI至Canvas
@@ -49,10 +62,60 @@ public class UIControl : MonoBehaviour
         uiDic[player][uIType].GetComponent<Image>().color = Color.white;
     }
 
+    //增加指定樣式UI
+    public void AddStyleUI(UIType uIType, UIStyle uIStyle, PlayerType player)
+    {
+        foreach(var i in uIBase.GetUIItems(player))
+        {
+            if(i.uIType == uIType && i.uIStyle == uIStyle)
+            {
+                uiDic[player][uIType].GetComponent<Image>().sprite = i.uiSprite;
+                uiDic[player][uIType].GetComponent<Image>().color = Color.white;
+            }
+        }
+    }
+
+    //生成整套UI
+    public void InitAllStyleUI(UIStyle uIStyle, PlayerType player)
+    {
+        foreach(var i in uIBase.GetUIItems(player))
+        {
+            if(i.uIStyle == uIStyle)
+            {
+                uiDic[player][i.uIType].GetComponent<Image>().sprite = i.uiSprite;
+                uiDic[player][i.uIType].GetComponent<Image>().color = Color.white;
+            }
+        }
+    }
+
     //從Canvas隱藏UI
     public void RemoveUI(UIType uIType, PlayerType player)
     {
         Debug.Log(uiDic[player][uIType].name);
         uiDic[player][uIType].GetComponent<Image>().color = Color.clear;
+    }
+
+    //隱藏全部UI
+    public void REmoveAllUI()
+    {
+        foreach(var i in UIListBlue)
+        {
+            i.uiImage.GetComponent<Image>().color = Color.clear;
+        }
+        foreach(var i in UIListRed)
+        {
+            i.uiImage.GetComponent<Image>().color = Color.clear;
+        }
+    }
+
+
+    public bool CheckStart()
+    {
+        if(Input.GetKey(KeyCode.W))
+        {
+            if(Input.GetKey(KeyCode.UpArrow))
+                return true;
+        }
+        return false; 
     }
 }
