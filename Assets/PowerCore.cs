@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PowerCore : SingletonMonoBehavior<PowerCore>
 {
-[SerializeField]
-GameObject Wall;
+    bool IsEnd;
+
+    [SerializeField]
+    GameObject Wall;
 
     [SerializeField]
     inputControll inputControll;
@@ -92,7 +94,7 @@ GameObject Wall;
             Vector3LerpEx1 = new vector3Lerp();
             Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, 2.8f, 0), 0.75f);
 
-            Invoke("HiddenEndProgress2" , 2.5f);
+            Invoke("HiddenEndProgress2", 2.5f);
         }
         RedUI.SetActive(false);
         BlueUI.SetActive(false);
@@ -126,6 +128,11 @@ GameObject Wall;
         {
             SecondWinner.transform.position = Vector3LerpEx1.update();
         }
+
+        if (IsEnd && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void NormalEndProgress2()
@@ -134,25 +141,43 @@ GameObject Wall;
         transform.parent = Winner.transform;
         Vector3Lerp = new vector3Lerp();
         Vector3Lerp.startLerp(Winner.transform.position, new Vector3(+200, 2.8f, 0), 20f);
-
-        NormalEndUIText.SetActive(true);
+        Invoke("SetNormalEndUIText", 1.5f);
+        Invoke("SetENd", 1.5f);
     }
 
-     void HiddenEndProgress2()
+    void HiddenEndProgress2()
     {
-       Invoke("SetCameraNotFollow" , 3f);
+        Invoke("SetCameraNotFollow", 3f);
         transform.parent = Winner.transform;
         SecondWinner.transform.parent = Winner.transform;
         Vector3Lerp = new vector3Lerp();
         Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0, 200f, 0), 20f);
 
+        Invoke("SetHiddenEndUIText", 2f);
+        Invoke("SetENd", 2f);
         Wall.SetActive(false);
 
-        HiddenEndUIText.SetActive(true);
     }
 
-    void SetCameraNotFollow(){
-         VirtualCamera.enabled = false;
+    void SetNormalEndUIText()
+    {
+        NormalEndUIText.SetActive(true);
+
+    }
+    void SetHiddenEndUIText()
+    {
+        HiddenEndUIText.SetActive(true);
+
+    }
+
+    void SetENd()
+    {
+        IsEnd = true;
+    }
+
+    void SetCameraNotFollow()
+    {
+        VirtualCamera.enabled = false;
     }
 
     private void Start()

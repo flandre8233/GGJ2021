@@ -6,8 +6,11 @@ public class GameControll : SingletonMonoBehavior<GameControll>
 {
     [SerializeField]
     PlayerOneInputControll RedControll;
+int RedTimeCounter = 1;
+
     [SerializeField]
     PlayerTwoInputControll BlueControll;
+int BlueTimeCounter = 1;
 
     [SerializeField]
     Cinemachine.CinemachineTargetGroup CameraTargetGroup;
@@ -15,11 +18,13 @@ public class GameControll : SingletonMonoBehavior<GameControll>
     {
         if (IsRed)
         {
-            Invoke("RecoverRedShip", 5);
+            Invoke("RecoverRedShip", RedTimeCounter);
+            RedTimeCounter++;
         }
         else
         {
-            Invoke("RecoverBlueShip", 5);
+            Invoke("RecoverBlueShip", BlueTimeCounter);
+            BlueTimeCounter ++;
         }
     }
 
