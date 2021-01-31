@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 89554360768389909}
   - component: {fileID: 89554360768390120}
   - component: {fileID: 89554360768389911}
-  - component: {fileID: -3807853367297593549}
   - component: {fileID: 5922351597816157495}
   - component: {fileID: 5261429884422129733}
   - component: {fileID: 8791517099409636344}
   m_Layer: 5
-  m_Name: WasNot
+  m_Name: NormalEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +69,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: fee233938815b4d768fee7ab5a3761cb, type: 3}
-    m_FontSize: 24
+    m_FontSize: 54
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -82,19 +81,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
---- !u!114 &-3807853367297593549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89554360768389908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc9894ecbbb246a7b2909aca64d9faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FollowAt: {fileID: 0}
 --- !u!114 &5922351597816157495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,14 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameArray:
-  - Noki39
-  - xXx_Gibson420_xXx
-  - "SwimmingPotato[\u53F0\u5357-H\u7D44][\u7A0B\u5F0F]"
-  - "FlyingPotato[\u7F8E\u8853][H]"
-  - "Forever [\u53F0\u5357-H\u7D44]"
-  - SakuraMiko35
-  - UsadaPekora
-  ConText: ' was not an imposter.'
+  - ' '
+  ConText: Maybe... just maybe . It doesn't have to end like this....
 --- !u!82 &8791517099409636344
 AudioSource:
   m_ObjectHideFlags: 0

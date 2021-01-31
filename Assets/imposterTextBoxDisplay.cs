@@ -9,7 +9,6 @@ public class imposterTextBoxDisplay : TalkTextBoxDisplayControll
     {
         base.Start();
         string Name = GetComponent<NameData>().GetRandomName();
-        string ConText = " was not an imposter.";
-        StartTalking(Name + ConText);
+        StartTalking(Name +  GetComponent<NameData>().ConText);
     }
 }

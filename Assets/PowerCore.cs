@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PowerCore : SingletonMonoBehavior<PowerCore>
 {
+[SerializeField]
+GameObject Wall;
+
     [SerializeField]
     inputControll inputControll;
 
@@ -17,11 +20,24 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
     [SerializeField]
     List<Ship> CapturedByShip;
     Ship Winner;
+    Ship SecondWinner;
 
     float EntryTime;
 
     FloatLerp AnglesFloatLerp;
+
+    FloatLerp AnglesFloatLerpEx1;
+    FloatLerp AnglesFloatLerpEx2;
     vector3Lerp Vector3Lerp;
+    vector3Lerp Vector3LerpEx1;
+
+    [SerializeField]
+    Canvas MyCanvas;
+
+    [SerializeField]
+    GameObject NormalEndUIText;
+    [SerializeField]
+    GameObject HiddenEndUIText;
 
     public void OnCapturedEnter(Ship PlayerShip)
     {
@@ -59,6 +75,24 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         {
             print("hidden End");
 
+            Winner = CapturedByShip[0];
+            SecondWinner = CapturedByShip[1];
+            Winner.GetComponent<EndGameAnimation>().SetAnimation();
+            SecondWinner.GetComponent<EndGameAnimation>().SetAnimation();
+
+            AnglesFloatLerp = new FloatLerp();
+            AnglesFloatLerp.startLerp(Winner.transform.rotation.eulerAngles.z, 0, 0.5f);
+            AnglesFloatLerpEx1 = new FloatLerp();
+            AnglesFloatLerpEx1.startLerp(SecondWinner.transform.rotation.eulerAngles.z, 0, 0.5f);
+            AnglesFloatLerpEx2 = new FloatLerp();
+            AnglesFloatLerpEx2.startLerp(1, -1, 0.5f);
+
+            Vector3Lerp = new vector3Lerp();
+            Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0.8f, 2.8f, 0), 0.75f);
+            Vector3LerpEx1 = new vector3Lerp();
+            Vector3LerpEx1.startLerp(SecondWinner.transform.position, new Vector3(-0.8f, 2.8f, 0), 0.75f);
+
+            Invoke("HiddenEndProgress2" , 2.5f);
         }
         RedUI.SetActive(false);
         BlueUI.SetActive(false);
@@ -76,23 +110,61 @@ public class PowerCore : SingletonMonoBehavior<PowerCore>
         {
             Winner.transform.rotation = Quaternion.Euler(0, 0, AnglesFloatLerp.update());
         }
+        if (AnglesFloatLerpEx1 != null && AnglesFloatLerpEx1.isLerping)
+        {
+            SecondWinner.transform.rotation = Quaternion.Euler(0, 0, AnglesFloatLerpEx1.update());
+        }
+        if (AnglesFloatLerpEx2 != null && AnglesFloatLerpEx2.isLerping)
+        {
+            SecondWinner.transform.localScale = new Vector3(AnglesFloatLerpEx2.update(), 1, 1);
+        }
         if (Vector3Lerp != null && Vector3Lerp.isLerping)
         {
             Winner.transform.position = Vector3Lerp.update();
+        }
+        if (Vector3LerpEx1 != null && Vector3LerpEx1.isLerping)
+        {
+            SecondWinner.transform.position = Vector3LerpEx1.update();
         }
     }
 
     void NormalEndProgress2()
     {
-        VirtualCamera.enabled = false;
+        SetCameraNotFollow();
         transform.parent = Winner.transform;
         Vector3Lerp = new vector3Lerp();
         Vector3Lerp.startLerp(Winner.transform.position, new Vector3(+200, 2.8f, 0), 20f);
+
+        NormalEndUIText.SetActive(true);
+    }
+
+     void HiddenEndProgress2()
+    {
+       Invoke("SetCameraNotFollow" , 3f);
+        transform.parent = Winner.transform;
+        SecondWinner.transform.parent = Winner.transform;
+        Vector3Lerp = new vector3Lerp();
+        Vector3Lerp.startLerp(Winner.transform.position, new Vector3(0, 200f, 0), 20f);
+
+        Wall.SetActive(false);
+
+        HiddenEndUIText.SetActive(true);
+    }
+
+    void SetCameraNotFollow(){
+         VirtualCamera.enabled = false;
     }
 
     private void Start()
     {
         EntryTime = int.MaxValue;
 
+    }
+    public static Vector2 WorldToCanvasPoint(Canvas canvas, Vector3 worldPos)
+    {
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform,
+            Camera.main.WorldToScreenPoint(worldPos), canvas.worldCamera, out pos);
+        return pos;
     }
 }

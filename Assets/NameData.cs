@@ -7,7 +7,7 @@ public class NameData : MonoBehaviour
    
    [SerializeField]
    string[] NameArray;
-
+public string ConText;
    public string GetRandomName(){
        return NameArray[Random.Range(0,NameArray.Length)];
    }
