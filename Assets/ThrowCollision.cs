@@ -27,7 +27,8 @@ public class ThrowCollision : MonoBehaviour
         {
             return;
         }
-        if(other.tag == "PowerCore"){
+        if (other.tag == "PowerCore")
+        {
 
         }
 
@@ -50,7 +51,7 @@ public class ThrowCollision : MonoBehaviour
         {
             transform.GetComponent<Throwing>().ReSetThrowing();
             GetComponent<Parts>().ResetBelong();
-            
+
         }
 
     }

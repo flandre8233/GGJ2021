@@ -90,10 +90,15 @@ public class ShipPartControll : MonoBehaviour
         {
             GetComponent<ShipThrowPartControll>().ThrowRandomPartRandom();
             GetComponent<ShipThrowPartControll>().ThrowRandomPartRandom();
-        }else{
+        }
+        else
+        {
             Debug.Log("Set Dead");
-            Destroy( ship.gameObject);
+            Destroy(ship.gameObject);
             GameControll.instance.OnSomeShipDead(ship.IsRed);
+
+            GameObject SoundPrefab = Resources.Load<GameObject>("AAH");
+            Instantiate(SoundPrefab, gameObject.transform.position, Quaternion.identity);
         }
 
     }
