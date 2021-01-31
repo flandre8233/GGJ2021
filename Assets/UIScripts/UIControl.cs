@@ -38,7 +38,7 @@ public class UIControl : MonoBehaviour
 
     void Update() 
     {
-        if(CheckStart())
+        if(CheckStart() && needInit)
         {
             InitAllStyleUI(UIStyle.AMONG_US, PlayerType.Red);
             InitAllStyleUI(UIStyle.Default, PlayerType.Blue);
