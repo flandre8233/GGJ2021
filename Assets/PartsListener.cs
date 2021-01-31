@@ -30,13 +30,15 @@ public class PartsListener : SingletonMonoBehavior<PartsListener>
     void OnRedShipAddParts(int PartsID)
     {
         print("OnRedShipAddParts");
-        uIControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
+        if(!uIControl.needInit)
+            uIControl.AddRandomUI((UIType)PartsID, PlayerType.Red);
     }
 
     void OnBlueShipAddParts(int PartsID)
     {
         print("OnBlueShipAddParts");
-        uIControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
+        if(!uIControl.needInit)
+            uIControl.AddRandomUI((UIType)PartsID, PlayerType.Blue);
     }
 
     public void OnSomeShipRemoveParts(Ship ship, int PartsID)
